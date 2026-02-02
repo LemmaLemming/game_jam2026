@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://doa5qu0hi2lm3"]
+
+[ext_resource type="Script" uid="uid://b6bmma25oab3e" path="res://Scripts/Player.gd" id="1_qkbd8"]
+[ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_imvdw"]
+[ext_resource type="Texture2D" uid="uid://b2iyc2yahh3ke" path="res://Assets/Mask Ball 2/Main 1.png" id="3_ywuut"]
+[ext_resource type="Texture2D" uid="uid://cy8b3p2mecnyn" path="res://Assets/Mask Ball 2/Main 2.png" id="4_eri3q"]
+[ext_resource type="Texture2D" uid="uid://cwh3n2gc3m2wo" path="res://Assets/Mask Ball 2/Main 3.png" id="5_p8iar"]
+[ext_resource type="Texture2D" uid="uid://d0ck4vhanox0v" path="res://Assets/Mask Ball 2/Main 4.png" id="6_r4csm"]
+[ext_resource type="Texture2D" uid="uid://b4uqr3s1sy0bn" path="res://Assets/Mask Ball 2/grav_jump_3.png" id="7_4logw"]
+[ext_resource type="Texture2D" uid="uid://ccm6ntnt2ke62" path="res://Assets/Mask Ball 2/Stick_1.png" id="7_p8iar"]
+[ext_resource type="Texture2D" uid="uid://qa18qvoesc48" path="res://Assets/Mask Ball 2/grav_jump_1.png" id="8_1km8o"]
+[ext_resource type="Texture2D" uid="uid://cpcnoag6n66gc" path="res://Assets/Mask Ball 2/Stick_2.png" id="8_r4csm"]
+[ext_resource type="Texture2D" uid="uid://bis8km0n3yy2b" path="res://Assets/Mask Ball 2/Stick_3.png" id="9_6srnc"]
+[ext_resource type="Texture2D" uid="uid://u5o33o3e5rp1" path="res://Assets/Mask Ball 2/grav_jump_2.png" id="9_i60x6"]
+[ext_resource type="Texture2D" uid="uid://cknillb6yfg2y" path="res://Assets/Mask Ball 2/grav_jump_2_down.png" id="10_kl4ka"]
+[ext_resource type="Texture2D" uid="uid://c1v3l83fw3i0l" path="res://Assets/Mask Ball 2/Transform_1.png" id="14_dc1uv"]
+[ext_resource type="Texture2D" uid="uid://b5nmj6h012w8i" path="res://Assets/Mask Ball 2/Transform_2.png" id="15_rvhp4"]
+[ext_resource type="Texture2D" uid="uid://dk825rcssw8nw" path="res://Assets/Mask Ball 2/Transform_3.png" id="16_nih01"]
+[ext_resource type="Texture2D" uid="uid://diwctxwh6b0wv" path="res://Assets/Mask Ball 2/clip_1.png" id="17_ep2h5"]
+[ext_resource type="Texture2D" uid="uid://dyh1xbbk3n8w5" path="res://Assets/Mask Ball 2/clip_2.png" id="18_ley4d"]
+[ext_resource type="Texture2D" uid="uid://dua1ac7nau3fk" path="res://Assets/Mask Ball 2/clip_3.png" id="19_glsrv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nss6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ywuut")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eri3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p8iar")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ywuut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eri3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p8iar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r4csm")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v1l4e"]
+radius = 35.014282
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ctox"]
+radius = 34.525352
+
+[sub_resource type="Curve" id="Curve_m2jh0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246032, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_3gc37"]
+offsets = PackedFloat32Array(0.25, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4logw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_dc1uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rvhp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nih01")
+}],
+"loop": false,
+"name": &"transform",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avmds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4logw")
+}],
+"loop": true,
+"name": &"circle - ceiling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1km8o")
+}],
+"loop": true,
+"name": &"circle - floor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kl4ka")
+}],
+"loop": true,
+"name": &"circle - inairmovingdown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_i60x6")
+}],
+"loop": true,
+"name": &"circle - inairmovingup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_p8iar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r4csm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6srnc")
+}],
+"loop": true,
+"name": &"square - all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ep2h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ley4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_glsrv")
+}],
+"loop": true,
+"name": &"triangle - all",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=178596615 groups=["Player"]]
+script = ExtResource("1_qkbd8")
+is_circle_collected = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747628418]
+position = Vector2(1, 13)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_4nss6")
+animation = &"Jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245864068]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_v1l4e")
+
+[node name="Collision" type="Area2D" parent="." unique_id=1821050806]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1237768386]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_0ctox")
+
+[node name="ParticleTrails" type="CPUParticles2D" parent="." unique_id=1463406596]
+position = Vector2(0, 42)
+emitting = false
+amount = 20
+texture = ExtResource("3_imvdw")
+lifetime = 0.4
+speed_scale = 0.8
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_m2jh0")
+color_ramp = SubResource("Gradient_3gc37")
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=899946666]
+position = Vector2(-1, 15)
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_sphere_radius = 50.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 15.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_m2jh0")
+color_ramp = SubResource("Gradient_3gc37")
+
+[node name="AnimatedSprite2DT" type="AnimatedSprite2D" parent="." unique_id=1320604395]
+position = Vector2(1, 12)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_4logw")
+animation = &"transform"
+
+[node name="AnimatedSprite2DO" type="AnimatedSprite2D" parent="." unique_id=1064959467]
+position = Vector2(1, 12)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_avmds")
+animation = &"circle - inairmovingdown"
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

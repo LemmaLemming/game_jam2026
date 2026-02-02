@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://8gskf4f4y5l0"]
+
+[ext_resource type="Script" uid="uid://bajaelc6i4rjq" path="res://Scripts/main_menu.gd" id="1_qqk0j"]
+[ext_resource type="Texture2D" uid="uid://c0hdagcsnpiij" path="res://Assets/image.png" id="2_wmo1h"]
+[ext_resource type="Texture2D" uid="uid://dvb6qc3abflnd" path="res://Assets/titlescreen-bg.jpg" id="2_xg7my"]
+[ext_resource type="Texture2D" uid="uid://bls4f8s0id4ta" path="res://Assets/paintball-logo.png" id="3_wmo1h"]
+[ext_resource type="Texture2D" uid="uid://bm1qckvir0gu4" path="res://Assets/vignette-png-1920x1080.png" id="4_gnv55"]
+
+[node name="Main Menu" type="Node2D" unique_id=844226043]
+script = ExtResource("1_qqk0j")
+
+[node name="Control" type="Control" parent="." unique_id=1421175910]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1771250780]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 396.0
+offset_right = 1010.0
+offset_bottom = 546.0
+icon = ExtResource("2_wmo1h")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1052747899]
+position = Vector2(572, 206)
+scale = Vector2(0.09093747, 0.1317708)
+texture = ExtResource("2_xg7my")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531539124]
+position = Vector2(566.5, 210.5)
+scale = Vector2(0.20182289, 0.17546296)
+texture = ExtResource("3_wmo1h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1929489890]
+position = Vector2(557, 312)
+texture = ExtResource("4_gnv55")
+
+[node name="Label" type="Label" parent="." unique_id=336848723]
+offset_left = 105.0
+offset_top = 414.0
+offset_right = 511.0
+offset_bottom = 586.0
+text = "1-4 toggle through masks as you unlock them!
+Press E to activate"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

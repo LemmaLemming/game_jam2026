@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dmalrh20js8ah"]
+
+[ext_resource type="AudioStream" uid="uid://c8215a78u2ohn" path="res://Assets/looping_bgm.wav" id="1_0t4pu"]
+
+[node name="Node2D" type="AudioStreamPlayer" unique_id=767146956]
+stream = ExtResource("1_0t4pu")
+autoplay = true

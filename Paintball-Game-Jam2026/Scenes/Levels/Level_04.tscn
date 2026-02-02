@@ -1,0 +1,189 @@
+[gd_scene format=4 uid="uid://darrnnrsriosd"]
+
+[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_6yqdk"]
+[ext_resource type="Texture2D" uid="uid://40klsnxi1t66" path="res://Assets/levelassets/bg4.png" id="1_rlh7l"]
+[ext_resource type="Script" uid="uid://bp3tg0uv8gpdm" path="res://Scenes/Levels/level_01.gd" id="1_v1del"]
+[ext_resource type="PackedScene" uid="uid://dg1phv1244omh" path="res://Scenes/Levels/Level_05.tscn" id="2_6yqdk"]
+[ext_resource type="PackedScene" uid="uid://doa5qu0hi2lm3" path="res://Scenes/Prefabs/Player.tscn" id="4_rlh7l"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="4_v1del"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="5_57wva"]
+[ext_resource type="Texture2D" uid="uid://cal2napspxeck" path="res://Assets/levelassets/fore4.png" id="5_v1del"]
+[ext_resource type="Script" uid="uid://c87qnbbo1iebr" path="res://Scripts/GameManager.gd" id="6_nfvq6"]
+[ext_resource type="Script" uid="uid://dwrtpu4waa1m3" path="res://Scripts/GameUI.gd" id="7_h31d5"]
+[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="8_hrgoi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
+texture = ExtResource("4_v1del")
+texture_region_size = Vector2i(64, 64)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_2fcbi"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rndpx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cagf"]
+texture = ExtResource("4_v1del")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 16, -32, 16)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 0, -32, 0)
+4:0/0 = 0
+4:1/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+6:0/0 = 0
+7:1/0 = 0
+7:0/0 = 0
+6:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5vjlm"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3cagf")
+
+[node name="Level_03" type="Node2D" unique_id=1097571583]
+script = ExtResource("1_v1del")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=651123497]
+position = Vector2(580.5, 336)
+scale = Vector2(0.8296245, 0.8465228)
+texture = ExtResource("1_rlh7l")
+
+[node name="LevelFinishDoor" parent="." unique_id=1093747785 instance=ExtResource("1_6yqdk")]
+z_index = 1
+position = Vector2(1098, 534)
+next_scene = ExtResource("2_6yqdk")
+
+[node name="Player" parent="." unique_id=178596615 instance=ExtResource("4_rlh7l")]
+position = Vector2(53, 561)
+is_square_collected = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1229054468]
+position = Vector2(577.5, 334.5)
+scale = Vector2(0.810153, 0.80695444)
+texture = ExtResource("5_v1del")
+
+[node name="Level" type="Node2D" parent="." unique_id=118540083]
+
+[node name="Layer1" type="TileMapLayer" parent="Level" unique_id=1373189582]
+visible = false
+use_parent_material = true
+scale = Vector2(0.7, 0.7)
+tile_map_data = PackedByteArray("AAAUAAoAAAAAAAUAAGAUAAsAAAAAAAUAAGAUAAwAAAAAAAUAAGD7/xAAAAAAAAUAAAD8/xAAAAAAAAUAAAD9/xAAAAAAAAUAAAD+/xAAAAAAAAUAAAD//xAAAAAAAAUAAAAAABAAAAAAAAUAAAAZABAAAAAAAAUAAAAaABAAAAAAAAUAAAAbABAAAAAAAAUAAAAcABAAAAAAAAUAAAAdABAAAAAAAAUAAAAeABAAAAAAAAUAAAAfABAAAAAAAAUAAAAgABAAAAAAAAUAAAAhABAAAAAAAAUAAAANABAAAAAAAAUAAAAOABAAAAAAAAUAAAAPABAAAAAAAAUAAAAQABAAAAAAAAUAAAARABAAAAAAAAUAAAASABAAAAAAAAUAAAATABAAAAAAAAUAAAAUABAAAAAAAAUAAAAVABAAAAAAAAUAAAAWABAAAAAAAAUAAAAXABAAAAAAAAUAAAAYABAAAAAAAAUAAAABABAAAAAAAAUAAAACABAAAAAAAAUAAAADABAAAAAAAAUAAAAEABAAAAAAAAUAAAAFABAAAAAAAAUAAAAGABAAAAAAAAUAAAAHABAAAAAAAAUAAAAIABAAAAAAAAUAAAAJABAAAAAAAAUAAAAKABAAAAAAAAUAAAALABAAAAAAAAUAAAAMABAAAAAAAAUAAAD2//z/AAAAAAUAAAD3//z/AAAAAAUAAAD4//z/AAAAAAUAAAD5//z/AAAAAAUAAAD6//z/AAAAAAUAAAD7//z/AAAAAAUAAAD8//z/AAAAAAUAAAD9//z/AAAAAAUAAAD+//z/AAAAAAUAAAD///z/AAAAAAUAAAAAAPz/AAAAAAUAAAABAPz/AAAAAAUAAAACAPz/AAAAAAUAAAADAPz/AAAAAAUAAAAEAPz/AAAAAAUAAAAFAPz/AAAAAAUAAAAGAPz/AAAAAAUAAAAHAPz/AAAAAAUAAAAIAPz/AAAAAAUAAAAJAPz/AAAAAAUAAAAKAPz/AAAAAAUAAAALAPz/AAAAAAUAAAAMAPz/AAAAAAUAAAANAPz/AAAAAAUAAAAOAPz/AAAAAAUAAAAPAPz/AAAAAAUAAAAQAPz/AAAAAAUAAAARAPz/AAAAAAUAAAASAPz/AAAAAAUAAAATAPz/AAAAAAUAAAAUAPz/AAAAAAUAAAAVAPz/AAAAAAUAAAAWAPz/AAAAAAUAAAAXAPz/AAAAAAUAAAAYAPz/AAAAAAUAAAAZAPz/AAAAAAUAAAAaAPz/AAAAAAUAAAAbAPz/AAAAAAUAAAAcAPz/AAAAAAUAAAAdAPz/AAAAAAUAAAAeAPz/AAAAAAUAAAAfAPz/AAAAAAUAAAAgAPz/AAAAAAUAAAAhAPz/AAAAAAUAAAAiAPz/AAAAAAUAAAAjAPz/AAAAAAUAAAAkAPz/AAAAAAUAAAAlAPz/AAAAAAUAAAAmAPz/AAAAAAUAAAAnAPz/AAAAAAUAAAAoAPz/AAAAAAUAAAApAPz/AAAAAAUAAAAqAPz/AAAAAAUAAAArAPz/AAAAAAUAAAAsAPz/AAAAAAUAAAA=")
+tile_set = SubResource("TileSet_2fcbi")
+
+[node name="SpawnPoint" type="Marker2D" parent="Level" unique_id=608804109]
+unique_name_in_owner = true
+position = Vector2(61, 554)
+
+[node name="Layer0" type="TileMapLayer" parent="Level" unique_id=760001988]
+visible = false
+use_parent_material = true
+scale = Vector2(0.7, 0.7)
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAUAAAAAAAEAAAAEAAUAAAAAAAIAAAAEAAUAAAAAAAMAAAAEAAUAAAAAAAQAAAAEAAUAAAAAAAUAAAAEAAUAAAAAAAYAAAAEAAUAAAAAAAcAAAAEAAUAAAAAAAgAAAAEAAUAAAAAAAkAAAAEAAUAAAAAAAoAAAAEAAUAAAAAAA4AAAAEAAUAAAABAAAAAAAEAAUAAAABAAEAAAAEAAUAAAABAAIAAAAEAAUAAAABAAMAAAAEAAUAAAABAAQAAAAEAAUAAAABAAUAAAAEAAUAAAABAAYAAAAEAAUAAAABAAcAAAAEAAUAAAABAAgAAAAEAAUAAAABAAkAAAAEAAUAAAABAAoAAAAEAAUAAAABAA4AAAAEAAUAAAACAAAAAAAEAAUAAAACAA4AAAAEAAUAAAADAAAAAAAEAAUAAAADAA4AAAAEAAUAAAAEAAAAAAAEAAUAAAAEAA4AAAAEAAUAAAAFAAAAAAAEAAUAAAAFAAEAAAAEAAUAAAAFAAIAAAAEAAUAAAAFAAMAAAAEAAUAAAAFAAcAAAAEAAUAAAAFAAgAAAAEAAUAAAAFAAkAAAAEAAUAAAAFAAoAAAAEAAUAAAAFAAsAAAAEAAUAAAAFAAwAAAAEAAUAAAAFAA0AAAAEAAUAAAAFAA4AAAAEAAUAAAAGAAAAAAAEAAUAAAAGAAEAAAAEAAUAAAAGAAIAAAAEAAUAAAAGAAMAAAAEAAUAAAAGAAcAAAAEAAUAAAAGAAgAAAAEAAUAAAAGAAkAAAAEAAUAAAAGAAoAAAAEAAUAAAAGAAsAAAAEAAUAAAAGAAwAAAAEAAUAAAAGAA0AAAAEAAUAAAAGAA4AAAAEAAUAAAAHAAAAAAAEAAUAAAAHAAEAAAAEAAUAAAAHAAIAAAAEAAUAAAAHAAMAAAAEAAUAAAAHAAcAAAAEAAUAAAAHAAgAAAAEAAUAAAAHAAkAAAAEAAUAAAAHAAoAAAAEAAUAAAAHAAsAAAAEAAUAAAAHAAwAAAAEAAUAAAAHAA0AAAAEAAUAAAAHAA4AAAAEAAUAAAAIAAAAAAAEAAUAAAAIAA0AAAAEAAUAAAAIAA4AAAAEAAUAAAAJAAAAAAAEAAUAAAAJAA0AAAAEAAUAAAAJAA4AAAAEAAUAAAAKAAAAAAAEAAUAAAAKAAMAAAAEAAUAAAAKAAQAAAAEAAUAAAAKAAUAAAAEAAUAAAAKAA0AAAAEAAUAAAAKAA4AAAAEAAUAAAALAAAAAAAEAAUAAAALAAMAAAAEAAUAAAALAAQAAAAEAAUAAAALAAUAAAAEAAUAAAALAA0AAAAEAAUAAAALAA4AAAAEAAUAAAAMAAAAAAAEAAUAAAAMAAMAAAAEAAUAAAAMAAQAAAAEAAUAAAAMAAUAAAAEAAUAAAAMAA0AAAAEAAUAAAAMAA4AAAAEAAUAAAANAAAAAAAEAAUAAAANAA0AAAAEAAUAAAANAA4AAAAEAAUAAAAOAAAAAAAEAAUAAAAPAAAAAAAEAAUAAAAQAAAAAAAEAAUAAAARAAAAAAAEAAUAAAARAAMAAAAEAAUAAAARAAQAAAAEAAUAAAARAAUAAAAEAAUAAAASAAAAAAAEAAUAAAASAAMAAAAEAAUAAAASAAQAAAAEAAUAAAASAAUAAAAEAAUAAAASAA0AAAAEAAUAAAASAA4AAAAEAAUAAAATAAAAAAAEAAUAAAATAAMAAAAEAAUAAAATAAQAAAAEAAUAAAATAAUAAAAEAAUAAAATAA0AAAAEAAUAAAATAA4AAAAEAAUAAAAUAAAAAAAEAAUAAAAUAA0AAAAEAAUAAAAUAA4AAAAEAAUAAAAVAAAAAAAEAAUAAAAVAAoAAAAHAAEAAAAVAAsAAAAHAAEAAAAVAAwAAAAHAAEAAAAVAA0AAAAEAAUAAAAVAA4AAAAEAAUAAAAWAAAAAAAEAAUAAAAWAAoAAAAEAAUAAAAWAAsAAAAEAAUAAAAWAAwAAAAEAAUAAAAWAA0AAAAEAAUAAAAWAA4AAAAEAAUAAAAXAAAAAAAEAAUAAAAXAA0AAAAEAAUAAAAXAA4AAAAEAAUAAAAYAAAAAAAEAAUAAAAYAA0AAAAEAAUAAAAYAA4AAAAEAAUAAAAZAAAAAAAEAAUAAAAZAAEAAAAEAAUAAAAZAAIAAAAEAAUAAAAZAAMAAAAEAAUAAAAZAAQAAAAEAAUAAAAZAAUAAAAEAAUAAAAZAAYAAAAEAAUAAAAZAAcAAAAEAAUAAAAZAAgAAAAEAAUAAAAZAA0AAAAEAAUAAAAZAA4AAAAEAAUAAAA=")
+tile_set = SubResource("TileSet_5vjlm")
+
+[node name="TutorialText" type="Node2D" parent="." unique_id=1861612810]
+
+[node name="Movement" type="Label" parent="TutorialText" unique_id=645296310]
+offset_left = 244.0
+offset_top = 1284.0
+offset_right = 523.0
+offset_bottom = 1368.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_57wva")
+theme_override_font_sizes/font_size = 32
+text = "A & D To Move
+Spacebar To Jump"
+
+[node name="SetNextScene" type="Label" parent="TutorialText" unique_id=706469699]
+offset_left = 668.0
+offset_top = 1290.0
+offset_right = 1104.0
+offset_bottom = 1416.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_57wva")
+theme_override_font_sizes/font_size = 32
+text = "Level Finish
+Set the next scene
+from \"LevelFinishDoor\" Area"
+
+[node name="GameManager" type="Node2D" parent="." unique_id=761301223]
+script = ExtResource("6_nfvq6")
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=471262287]
+
+[node name="GameUI" type="Control" parent="UserInterface" unique_id=228550261]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 1003.0
+offset_right = 31.0
+offset_bottom = 1003.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_h31d5")
+
+[node name="Score" type="Control" parent="UserInterface/GameUI" unique_id=2080371754]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score" unique_id=60993728]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("8_hrgoi")
+stretch_mode = 4
+
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score" unique_id=1769876773]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = 42.0
+offset_right = 148.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_57wva")
+theme_override_font_sizes/font_size = 32
+text = "x 3"
